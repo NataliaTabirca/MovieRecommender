@@ -21,6 +21,3 @@ This step applies before running the program.
 - To run the app use:
     > make
 
-or
-    > make run
-
