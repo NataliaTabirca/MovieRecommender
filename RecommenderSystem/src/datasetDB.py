@@ -1,16 +1,11 @@
-import pyodbc
+from pymongo import MongoClient
+from bson.objectid import ObjectId
 
-# Trusted Connection to Named Instance
-connection = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER=.\SQL2K19;DATABASE=SampleDB;Trusted_Connection=yes;')
+def get_database():
+   CONNECTION_STRING = "mongodb+srv://natalia:natalia@cluster0.xxbanbk.mongodb.net/?retryWrites=true&w=majority"
+   client = MongoClient(CONNECTION_STRING)
+   return client["MovieRecommender"]
 
-cursor=connection.cursor()
-cursor.execute("SELECT @@VERSION as version")
 
-while 1:
-    row = cursor.fetchone()
-    if not row:
-        break
-    print(row.version)
-
-cursor.close()
-connection.close()
+dbname = get_database()
+users = dbname["Users"]
