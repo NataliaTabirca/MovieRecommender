@@ -28,4 +28,6 @@ const MovieSchema = new Schema({
     vote_count: Number
 });
 
-module.exports = mongoose.model("movie", MovieSchema, "movies");
+const Movies = mongoose.model("Movies", MovieSchema);
+
+module.exports = Movies;

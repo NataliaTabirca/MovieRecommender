@@ -1,12 +1,8 @@
 const mongoose = require("mongoose");
 
 const connect = async () => {
-    try { 
-        const options = {
-        useNewUrlParser: true,
-        };
-
-        const connection = await mongoose.connect('mongodb://mongo:27017/docker-db', options);
+    try {
+        const connection = await mongoose.connect('mongodb://mongo:27017/MovieRecommender').catch(err);
         if (connection)
         console.log("\x1b[32m%s\x1b[0m", "Database Connected Successfully...");
     } catch (err) {
@@ -15,6 +11,4 @@ const connect = async () => {
     }
 };
 
-module.exports = {
-connect,
-};
+module.exports = connect

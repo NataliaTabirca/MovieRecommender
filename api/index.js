@@ -2,7 +2,7 @@ const express = require('express');
 require('express-async-errors');
 
 var amqp = require('amqplib/callback_api');
-const MOVIE = require("./models/movies")
+const movies = require("./models/movies")
 
 let channel;
 
@@ -41,8 +41,8 @@ app.listen(port, () => {
 //add context for get
 app.get('/get-movie', async (req, res) => {
   console.log("it works")
-  const results = await MOVIE.find({});
-
+  const results = await movies.count();
+  console.log(results)
   res.status(200).json(results);
 });
 
