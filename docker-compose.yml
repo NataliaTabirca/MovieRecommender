@@ -10,6 +10,15 @@ services:
     depends_on:
       - rabbitmq
 
+  business:
+    image: business:latest
+    environment:
+      PORT: 8000
+      AMQPURL: amqp://rabbitmq
+    restart: on-failure
+    depends_on:
+      - rabbitmq
+      
   rabbitmq:
     image: rabbitmq:3
     
