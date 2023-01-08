@@ -16,3 +16,5 @@ kind create cluster --config ./kind-config.yaml
 kubectl apply -R -f kubernetes-yaml
 ```
 
+kubectl create secret generic database-secret --from-literal=POSTGRES_USER=user --from-literal=POSTGRES_PASSWORD=pass --from-literal=POSTGRES_DB=database --dry-run=client -o yaml
+

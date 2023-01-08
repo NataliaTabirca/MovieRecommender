@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: api-deployment
+  name: api-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api-deployment
+  template:
+    metadata:
+      labels:
+        app: api-deployment
+    spec:
+      containers:
+      - image: dianapatru/movierecommender-api:1.0
+        name: api-deployment
+        ports:
+        - containerPort: 8000
+        envFrom:
+          - configMapRef:
+              name: app-configmap
+          - secretRef:
+              name: database-secret
