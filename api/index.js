@@ -44,10 +44,10 @@ app.listen(port, () => {
 //add context for get
 app.get('/get-movie', async (req, res) => {
 
-  var values = await ExecuteQuery("SELECT * FROM MOVIES LIMIT 10")
+  var values = await ExecuteQuery("SELECT * FROM movies LIMIT 10")
 
   console.log(values)
-  res.status(200);
+  res.status(200).json(values);
 });
 
 app.get('/get-best-rated', async (req, res) => {
