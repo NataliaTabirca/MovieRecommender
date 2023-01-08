@@ -2,23 +2,33 @@ version: '3'
 
 services:
   api:
-    image: api:latest
+    build: ./api
     environment:
       PORT: 8000
       AMQPURL: amqp://rabbitmq
     restart: on-failure
     depends_on:
+      - database
       - rabbitmq
 
   business:
-    image: business:latest
+    build: ./businessLogic
     environment:
       PORT: 8000
       AMQPURL: amqp://rabbitmq
     restart: on-failure
     depends_on:
       - rabbitmq
-      
+  
+  database:
+    image: postgres
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: database
+    ports:
+      - "5432:5432"
+
   rabbitmq:
     image: rabbitmq:3
     

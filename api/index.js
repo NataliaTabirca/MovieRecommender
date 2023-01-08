@@ -7,29 +7,29 @@ const {
   ExecuteQuery
 } = require('./databaseConn/database');
 
-let channel;
+// let channel;
 
-amqp.connect(process.env.AMQPURL, function(error0, connection) {
-    if (error0) {
-        throw error0;
-    }
-    connection.createChannel(function(error1, channel) {
-        if (error1) {
-            throw error1;
-        }
+// amqp.connect(process.env.AMQPURL, function(error0, connection) {
+//     if (error0) {
+//         throw error0;
+//     }
+//     connection.createChannel(function(error1, channel) {
+//         if (error1) {
+//             throw error1;
+//         }
 
-        var queue = 'MOVIES';
+//         var queue = 'MOVIES';
 
-        channel.assertQueue(queue, {
-            durable: false
-        });
+//         channel.assertQueue(queue, {
+//             durable: false
+//         });
 
-        console.log(" [*] Sending messages CTRL+C", queue);
-        /*
-    How do I set up a consumer outside this function? 
-         */
-    });
-});
+//         console.log(" [*] Sending messages CTRL+C", queue);
+//         /*
+//     How do I set up a consumer outside this function? 
+//          */
+//     });
+// });
 
 const app = express();
 
