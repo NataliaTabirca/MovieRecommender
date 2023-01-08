@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: business-deployment
+  name: business-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: business-deployment
+  template:
+    metadata:
+      labels:
+        app: business-deployment
+    spec:
+      containers:
+      - image: dianapatru/movierecommender-business:1.0
+        name: business-deployment
+        envFrom:
+          - configMapRef:
+              name: app-configmap
+          - secretRef:
+              name: database-secret
