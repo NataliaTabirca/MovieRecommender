@@ -21,7 +21,7 @@ resource "kubernetes_namespace" "movies" {
 resource "kubernetes_deployment" "api" {
   metadata {
     name = "api"
-    namespace = kubernetes_namespace.movies.metadata.0.name
+    namespace = kubernetes_namespace.movies.metadata.0.movie_recommender
   }
 
   spec {
@@ -42,7 +42,7 @@ resource "kubernetes_deployment" "api" {
 
       spec {
         container {
-          image = "movies/api:latest"
+          image = "api:latest"
           name  = "api"
         }
       }
@@ -54,7 +54,7 @@ resource "kubernetes_deployment" "api" {
 resource "kubernetes_deployment" "business-logic" {
   metadata {
     name = "business-logic"
-    namespace = kubernetes_namespace.movies.metadata.0.name
+    namespace = kubernetes_namespace.movies.metadata.0.movie_recommender
   }
 
   spec {
@@ -75,7 +75,7 @@ resource "kubernetes_deployment" "business-logic" {
 
       spec {
         container {
-          image = "movies/business-logic:latest"
+          image = "business:latest"
           name  = "business-logic"
         }
       }
@@ -87,7 +87,7 @@ resource "kubernetes_deployment" "business-logic" {
 resource "kubernetes_deployment" "database" {
   metadata {
     name = "database"
-    namespace = kubernetes_namespace.movies.metadata.0.name
+    namespace = kubernetes_namespace.movies.metadata.0.movie_recommender
   }
 
   spec {
@@ -120,7 +120,7 @@ resource "kubernetes_deployment" "database" {
 resource "kubernetes_service" "api" {
   metadata {
     name = "api"
-    namespace = kubernetes_namespace.movies.metadata.0.name
+    namespace = kubernetes_namespace.movies.metadata.0.movie_recommender
   }
 
   spec {
@@ -141,7 +141,7 @@ resource "kubernetes_service" "api" {
 resource "kubernetes_service" "business-logic" {
   metadata {
     name = "business-logic"
-    namespace = kubernetes_namespace.movies.metadata.0.name
+    namespace = kubernetes_namespace.movies.metadata.0.movie_recommender
   }
 
   spec {
@@ -160,7 +160,7 @@ resource "kubernetes_service" "business-logic" {
 resource "kubernetes_service" "database" {
   metadata {
     name = "database"
-    namespace = kubernetes_namespace.movies.metadata.0.name
+    namespace = kubernetes_namespace.movies.metadata.0.movie_recommender
   }
 
   spec {
