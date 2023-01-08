@@ -20,7 +20,7 @@ app.listen(port, () => {
 });
 
 app.get('/get-movie', async (req, res) => {
-
+  console.log("INTRA IN GET")
   var values = await ExecuteQuery("SELECT * FROM movies LIMIT 10")
 
   console.log(values)

@@ -2,25 +2,26 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    run: api-deployment
+    run: api
   name: api-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: api-deployment
+      app: api
   template:
     metadata:
       labels:
-        app: api-deployment
+        app: api
     spec:
       containers:
-      - image: dianapatru/movierecommender-api:1.0
-        name: api-deployment
+      - image: dianapatru/movierecommender-api:2.0
+        name: api
         ports:
         - containerPort: 8000
         envFrom:
-          - configMapRef:
-              name: app-configmap
           - secretRef:
               name: database-secret
+          - configMapRef:
+              name: app-configmap
+         
