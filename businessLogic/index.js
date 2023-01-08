@@ -1,10 +1,16 @@
+require('dotenv').config()
+
+const {
+    ExecuteQuery
+} = require('./database/database');
+
 var amqp = require('amqplib/callback_api');
 
-amqp.connect(process.env.AMQPURL, function(error0, connection) {
+amqp.connect(process.env.AMQPURL, (error0, connection) => {
     if (error0) {
         throw error0;
     }
-    connection.createChannel(function(error1, channel) {
+    connection.createChannel((error1, channel) => {
         if (error1) {
             throw error1;
         }
@@ -19,8 +25,18 @@ amqp.connect(process.env.AMQPURL, function(error0, connection) {
         /*
     How do I set up a consumer outside this function? 
          */
-        channel.consume(queue, function(msg) {
+        channel.consume(queue, async (msg) => {
             console.log(" [x] Received %s", msg.content.toString());
+
+            if(msg !== null) {
+                const jsonPayload = JSON.parse(msg.content);
+                try {
+                    await ExecuteQuery("insert into Movies (title, genre, description, rating, release_date) values ($1, $2, $3, $4, $5)", 
+                    [jsonPayload.title, jsonPayload.genre, jsonPayload.description, jsonPayload.rating, jsonPayload.release_date]);
+                } catch (err) {
+                    console.error(err);
+                }
+            }
         }, {
             noAck: true
         });

@@ -2,7 +2,10 @@ const express = require('express');
 require('express-async-errors');
 
 var amqp = require('amqplib/callback_api');
-const movies = require("./models/movies")
+
+const {
+  ExecuteQuery
+} = require('./databaseConn/database');
 
 let channel;
 
@@ -40,10 +43,11 @@ app.listen(port, () => {
 
 //add context for get
 app.get('/get-movie', async (req, res) => {
-  console.log("it works")
-  const results = await movies.count();
-  console.log(results)
-  res.status(200).json(results);
+
+  var values = await ExecuteQuery("SELECT * FROM MOVIES LIMIT 10")
+
+  console.log(values)
+  res.status(200);
 });
 
 app.get('/get-best-rated', async (req, res) => {
