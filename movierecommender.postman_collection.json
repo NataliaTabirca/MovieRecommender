@@ -23,7 +23,61 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "GET first 10 movies",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/get-movie",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"get-movie"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1523"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"5f3-G5YLtl23HoJxcl0NvDeGiLb6QJQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 08 Jan 2023 17:22:25 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"title\": \"Winnie the Pooh and Tigger Too\",\n        \"genre\": \"Animation|Children\",\n        \"description\": \"model\",\n        \"rating\": 9.8,\n        \"release_date\": \"2020-02-07T20:36:22.000Z\"\n    },\n    {\n        \"id\": 2,\n        \"title\": \"Army of Darkness\",\n        \"genre\": \"Action|Adventure|Comedy|Fantasy|Horror\",\n        \"description\": \"instruction set\",\n        \"rating\": 3.7,\n        \"release_date\": \"2017-03-10T09:48:25.000Z\"\n    },\n    {\n        \"id\": 3,\n        \"title\": \"Ordinary Decent Criminal\",\n        \"genre\": \"Comedy|Crime\",\n        \"description\": \"Synergistic\",\n        \"rating\": 5.6,\n        \"release_date\": \"2001-06-08T07:41:26.000Z\"\n    },\n    {\n        \"id\": 4,\n        \"title\": \"Climb, The\",\n        \"genre\": \"Action|Adventure|Drama\",\n        \"description\": \"motivating\",\n        \"rating\": 1.7,\n        \"release_date\": \"1999-08-06T21:53:34.000Z\"\n    },\n    {\n        \"id\": 5,\n        \"title\": \"Two Women\",\n        \"genre\": \"Drama\",\n        \"description\": \"Customer-focused\",\n        \"rating\": 5.9,\n        \"release_date\": \"2022-08-07T11:26:07.000Z\"\n    },\n    {\n        \"id\": 6,\n        \"title\": \"Rise & Fall of ECW, The\",\n        \"genre\": \"Documentary\",\n        \"description\": \"matrices\",\n        \"rating\": 4.3,\n        \"release_date\": \"2018-06-28T05:17:18.000Z\"\n    },\n    {\n        \"id\": 7,\n        \"title\": \"Rififi (Du rififi chez les hommes)\",\n        \"genre\": \"Crime|Film-Noir|Thriller\",\n        \"description\": \"internet solution\",\n        \"rating\": 3.8,\n        \"release_date\": \"2006-02-19T03:16:17.000Z\"\n    },\n    {\n        \"id\": 8,\n        \"title\": \"Look, Up in the Sky! The Amazing Story of Superman\",\n        \"genre\": \"Documentary\",\n        \"description\": \"asynchronous\",\n        \"rating\": 3.3,\n        \"release_date\": \"2009-02-04T14:13:45.000Z\"\n    },\n    {\n        \"id\": 9,\n        \"title\": \"Maidentrip\",\n        \"genre\": \"Documentary\",\n        \"description\": \"structure\",\n        \"rating\": 8.1,\n        \"release_date\": \"1991-05-03T10:17:33.000Z\"\n    },\n    {\n        \"id\": 10,\n        \"title\": \"Mark of Cain, The\",\n        \"genre\": \"Drama\",\n        \"description\": \"national\",\n        \"rating\": 9.9,\n        \"release_date\": \"2011-06-03T00:37:11.000Z\"\n    }\n]"
+				}
+			]
 		},
 		{
 			"name": "GET best rated movies",
@@ -42,7 +96,61 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "GET best rated movies",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/get-best-rated",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"get-best-rated"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1526"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"5f6-piQ4YmazxlwJ+J5Yq9z8E3N84o8\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 08 Jan 2023 17:23:09 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 428,\n        \"title\": \"Palais royal !\",\n        \"genre\": \"Comedy\",\n        \"description\": \"cohesive\",\n        \"rating\": 10,\n        \"release_date\": \"1997-08-11T03:49:16.000Z\"\n    },\n    {\n        \"id\": 621,\n        \"title\": \"Undefeated\",\n        \"genre\": \"Documentary\",\n        \"description\": \"modular\",\n        \"rating\": 10,\n        \"release_date\": \"1999-09-25T19:27:41.000Z\"\n    },\n    {\n        \"id\": 828,\n        \"title\": \"Home Page\",\n        \"genre\": \"Documentary\",\n        \"description\": \"Multi-layered\",\n        \"rating\": 10,\n        \"release_date\": \"1995-01-28T13:16:36.000Z\"\n    },\n    {\n        \"id\": 684,\n        \"title\": \"Castle of the Living Dead (Castello Dei Morti Vivi, Il)\",\n        \"genre\": \"Horror|Sci-Fi|Thriller\",\n        \"description\": \"functionalities\",\n        \"rating\": 9.9,\n        \"release_date\": \"1995-09-28T18:15:57.000Z\"\n    },\n    {\n        \"id\": 27,\n        \"title\": \"Resident, The\",\n        \"genre\": \"Drama|Horror|Thriller\",\n        \"description\": \"Stand-alone\",\n        \"rating\": 9.9,\n        \"release_date\": \"2004-02-26T19:34:29.000Z\"\n    },\n    {\n        \"id\": 521,\n        \"title\": \"Balto\",\n        \"genre\": \"Adventure|Animation|Children\",\n        \"description\": \"focus group\",\n        \"rating\": 9.9,\n        \"release_date\": \"2009-05-27T07:14:14.000Z\"\n    },\n    {\n        \"id\": 645,\n        \"title\": \"Jungo Goes Bananas: Jungo III (Jungledyret Hugo: Fræk, flabet og fri)\",\n        \"genre\": \"Adventure|Animation|Children\",\n        \"description\": \"real-time\",\n        \"rating\": 9.9,\n        \"release_date\": \"2008-08-15T17:12:09.000Z\"\n    },\n    {\n        \"id\": 606,\n        \"title\": \"Thousand Acres, A\",\n        \"genre\": \"Drama\",\n        \"description\": \"multimedia\",\n        \"rating\": 9.9,\n        \"release_date\": \"1996-11-03T11:56:24.000Z\"\n    },\n    {\n        \"id\": 10,\n        \"title\": \"Mark of Cain, The\",\n        \"genre\": \"Drama\",\n        \"description\": \"national\",\n        \"rating\": 9.9,\n        \"release_date\": \"2011-06-03T00:37:11.000Z\"\n    },\n    {\n        \"id\": 662,\n        \"title\": \"Road to Nowhere\",\n        \"genre\": \"Romance|Thriller\",\n        \"description\": \"complexity\",\n        \"rating\": 9.9,\n        \"release_date\": \"1997-10-26T01:03:04.000Z\"\n    }\n]"
+				}
+			]
 		},
 		{
 			"name": "GET a movie by ID",
@@ -62,7 +170,62 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "GET a movie by ID",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/get-by-id/512",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"get-by-id",
+								"512"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "139"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"8b-Lgpl+XzH92q4rxkAY3Pj6T6kuO4\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 08 Jan 2023 17:23:44 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 512,\n        \"title\": \"First a Girl\",\n        \"genre\": \"Comedy|Musical\",\n        \"description\": \"Diverse\",\n        \"rating\": 6.3,\n        \"release_date\": \"2015-03-30T14:04:32.000Z\"\n    }\n]"
+				}
+			]
 		},
 		{
 			"name": "POST add a movie",
@@ -90,7 +253,70 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "POST add a movie",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"ceva adaugat\",\r\n    \"genre\": \"test\",\r\n    \"description\": \"teetssdfs\",\r\n    \"rating\": \"9.0\",\r\n    \"release_date\": \"2020-02-07T20:36:22.000Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/add-movie",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"add-movie"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "6"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"6-6pJ1DoQctQ7RSHYXHh78H/jCH8Y\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 08 Jan 2023 17:24:26 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "\"done\""
+				}
+			]
 		}
 	]
 }
