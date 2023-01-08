@@ -1,0 +1,46 @@
+version: '3'
+
+services:
+  api:
+    build: ./api
+    environment:
+      PORT: 8000
+      POSTGRES_HOST: database
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: database
+      POSTGRES_PORT: 5432
+      AMQPURL: amqp://rabbitmq
+    restart: on-failure
+    depends_on:
+      - database
+      - rabbitmq
+    ports:
+      - "8000:8000"
+
+  business:
+    build: ./businessLogic
+    environment:
+      PORT: 8000
+      POSTGRES_HOST: database
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: database
+      POSTGRES_PORT: 5432
+      AMQPURL: amqp://rabbitmq
+    restart: on-failure
+    depends_on:
+      - rabbitmq
+  
+  database:
+    build: ./database
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: database
+    ports:
+      - "5432:5432"
+
+  rabbitmq:
+    image: rabbitmq:3
+    
