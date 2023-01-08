@@ -7,29 +7,7 @@ const {
   ExecuteQuery
 } = require('./databaseConn/database');
 
-// let channel;
-
-// amqp.connect(process.env.AMQPURL, function(error0, connection) {
-//     if (error0) {
-//         throw error0;
-//     }
-//     connection.createChannel(function(error1, channel) {
-//         if (error1) {
-//             throw error1;
-//         }
-
-//         var queue = 'MOVIES';
-
-//         channel.assertQueue(queue, {
-//             durable: false
-//         });
-
-//         console.log(" [*] Sending messages CTRL+C", queue);
-//         /*
-//     How do I set up a consumer outside this function? 
-//          */
-//     });
-// });
+let channel;
 
 const app = express();
 
@@ -41,7 +19,6 @@ app.listen(port, () => {
   console.log(`Movie Service at ${port}`);
 });
 
-//add context for get
 app.get('/get-movie', async (req, res) => {
 
   var values = await ExecuteQuery("SELECT * FROM movies LIMIT 10")
@@ -50,36 +27,62 @@ app.get('/get-movie', async (req, res) => {
   res.status(200).json(values);
 });
 
+app.get('/get-by-id/:id', async (req, res) => {
+  const id = parseInt(req.params.id)
+  var values = await ExecuteQuery("SELECT * FROM movies WHERE id = $1",[id])
+
+  console.log(values)
+  res.status(200).json(values);
+});
+
 app.get('/get-best-rated', async (req, res) => {
-    const results = await Product.findAll();
-  
-    res.status(200).json(results);
-  });
+  var values = await ExecuteQuery("SELECT * FROM movies ORDER BY rating DESC LIMIT 10")
+
+  console.log(values)
+  res.status(200).json(values);
+});
 
 app.post('/add-movie', async (req, res) => {
-  const { ids } = req.body;
-  const products = await Product.findAll({
-    where: {
-      id: {
-        [Sequelize.Op.in]: ids,
-      },
-    },
-  });
-  let order;
 
-  channel.sendToQueue(
-    'MOVIES',
-    Buffer.from(
-      JSON.stringify({
-        products,
-        userEmail: req.user.email,
-      })
-    )
-  );
-  await channel.consume('MOVIES', data => {
-    order = JSON.parse(data.content);
+  console.log(req.body)
+
+  const { title, genre, description, rating, release_date } = req.body;
+
+  console.log(title, genre, description, rating, release_date);
+
+  amqp.connect(process.env.AMQPURL, function(error0, connection) {
+    if (error0) {
+        throw error0;
+    }
+    connection.createChannel(function(error1, channel) {
+        if (error1) {
+            throw error1;
+        }
+
+        var queue = 'MOVIES';
+
+        channel.assertQueue(queue, {
+            durable: false
+        });
+
+        console.log(" [*] Sending messages CTRL+C", queue);
+
+        channel.sendToQueue(
+          'MOVIES',
+          Buffer.from(
+            JSON.stringify({
+              title,
+              genre,
+              description,
+              rating,
+              release_date
+            })
+          )
+        );
+    });
   });
-  res.json(order);
+
+  res.json("done");
 });
 
 app.post('/delete-movie', async(req, res) => {

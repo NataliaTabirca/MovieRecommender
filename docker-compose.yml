@@ -33,7 +33,7 @@ services:
       - rabbitmq
   
   database:
-    image: postgres
+    build: ./database
     environment:
       POSTGRES_USER: user
       POSTGRES_PASSWORD: pass

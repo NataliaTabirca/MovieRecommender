@@ -22,16 +22,14 @@ amqp.connect(process.env.AMQPURL, (error0, connection) => {
         });
 
         console.log(" [*] Waiting for messages in %s. To exit press CTRL+C", queue);
-        /*
-    How do I set up a consumer outside this function? 
-         */
+
         channel.consume(queue, async (msg) => {
             console.log(" [x] Received %s", msg.content.toString());
 
             if(msg !== null) {
                 const jsonPayload = JSON.parse(msg.content);
                 try {
-                    await ExecuteQuery("insert into Movies (title, genre, description, rating, release_date) values ($1, $2, $3, $4, $5)", 
+                    await ExecuteQuery("insert into movies (id, title, genre, description, rating, release_date) values (1005, $1, $2, $3, $4, $5)", 
                     [jsonPayload.title, jsonPayload.genre, jsonPayload.description, jsonPayload.rating, jsonPayload.release_date]);
                 } catch (err) {
                     console.error(err);
