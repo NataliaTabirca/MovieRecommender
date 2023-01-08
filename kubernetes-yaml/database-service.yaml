@@ -1,12 +1,16 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: mongo
+  creationTimestamp: null
+  name: database-service
   labels:
-    app: mongo
+    app: database-deployment
 spec:
-  type: ClusterIP
   ports:
-    - port: 5432
+  - port: 5432
+    protocol: TCP
+    targetPort: 5432
   selector:
-    app: mongo
+    app: database-deployment
+status:
+  loadBalancer: {}
