@@ -85,6 +85,13 @@ app.post('/add-movie', async (req, res) => {
   res.json("done");
 });
 
-app.post('/delete-movie', async(req, res) => {
+app.get('/delete-movie/:id', async(req, res) => {
+  const id = parseInt(req.params.id)
 
+  var values = await ExecuteQuery("SELECT * FROM movies WHERE id = $1", [id])
+
+  await ExecuteQuery("DELETE FROM movies WHERE id = $1", [id])
+
+  console.log(`${values} was deleted`)
+  res.status(200).json(values);
 })
